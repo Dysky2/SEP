@@ -1,2 +1,3 @@
 # SEP
 Wiedza to potęga
+Projekt zakłada stworzenie kompleksowego systemu wspierającego organizację i realizację rocznego szkolenia na uczelni wyższej. Szkolenie skierowane będzie do studentów, absolwentów oraz osób chcących poszerzyć swoje kwalifikacje w określonych dziedzinach wiedzy. Celem projektu jest stworzenie narzędzia, które ułatwi zarządzanie uczestnikami, kursami, wykładowcami oraz oceną efektów nauczania.
