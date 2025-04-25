@@ -1,0 +1,2 @@
+# SEP
+Wiedza to potęga
