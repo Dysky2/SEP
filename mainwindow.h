@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "mainpage.h"
 #include "app.h"
+#include "user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,5 +26,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     MainPage *mainPage;
+    User *user;
 };
 #endif // MAINWINDOW_H
