@@ -1,1 +1,1 @@
-test
+Wiedza to potęga
