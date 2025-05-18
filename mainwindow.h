@@ -28,4 +28,6 @@ private:
     MainPage *mainPage;
     User *user;
 };
+
+
 #endif // MAINWINDOW_H

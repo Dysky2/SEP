@@ -32,6 +32,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         teacher.h teacher.cpp
         candidate.h candidate.cpp
         subject.h subject.cpp
+        attendance.cpp attendance.h attendance.ui
+        schedule.cpp schedule.h schedule.ui
+        grades.cpp grades.h grades.ui
+        announcements.h announcements.cpp announcements.ui
+        homework.h homework.cpp homework.ui
+        account.h account.cpp account.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SEP APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
