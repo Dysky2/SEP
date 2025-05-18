@@ -1,10 +1,14 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
+#include "mark.h"
+
 class Subject
 {
 private:
-    //QString name;
+    QString name;
+    Mark *mark;
+
 public:
     Subject();
 };
