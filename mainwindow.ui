@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>SignIn</string>
+     <string>Sign in</string>
     </property>
     <widget class="QPushButton" name="pushButton_Login">
      <property name="geometry">
@@ -45,7 +45,7 @@
       <string>Login</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -86,22 +86,19 @@
      </layout>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1079</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuLogowanie">
-    <property name="title">
-     <string>Logowanie</string>
+   <widget class="QCommandLinkButton" name="commandLinkButton">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>440</y>
+      <width>187</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Create a account</string>
     </property>
    </widget>
-   <addaction name="menuLogowanie"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

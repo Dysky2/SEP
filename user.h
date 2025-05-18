@@ -6,13 +6,12 @@
 
 class User : public QObject {
 
-
 private:
     QString name;
     QString surname;
     QString id;
     QString location;
-    QString role; // admin, user, mod, teacher, candidate
+    QString role; // admin, user, mod, teacher, candidate,
     QString email;
     QString password;
 
