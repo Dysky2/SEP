@@ -9,7 +9,16 @@ private:
     double grade;
     int weight;
 public:
-    Mark(QString description, double grade, int weight);
+    Mark(const QString& description, double grade, int weight);
+    ~Mark();
+
+    void setDescription(const QString& description);
+    void setGrade(double grade);
+    void setWeight(int weight);
+
+    QString getDescription() const;
+    double getGrade() const;
+    int getWeight() const;
 };
 
 #endif // MARK_H
