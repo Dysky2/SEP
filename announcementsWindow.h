@@ -1,5 +1,5 @@
-#ifndef ANNOUNCEMENTS_H
-#define ANNOUNCEMENTS_H
+#ifndef ANNOUNCEMENTSWINDOW_H
+#define ANNOUNCEMENTSWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Announcements *ui;
 };
 
-#endif // ANNOUNCEMENTS_H
+#endif // ANNOUNCEMENTSWINDOW_H

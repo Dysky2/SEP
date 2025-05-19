@@ -1,5 +1,5 @@
-#include "grades.h"
-#include "ui_grades.h"
+#include "gradesWindow.h"
+#include "ui_gradesWindow.h"
 
 Grades::Grades(QWidget *parent)
     : QMainWindow(parent)

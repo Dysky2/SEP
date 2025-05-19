@@ -1,5 +1,5 @@
-#include "attendance.h"
-#include "ui_attendance.h"
+#include "attendanceWindow.h"
+#include "ui_attendanceWindow.h"
 
 Attendance::Attendance(QWidget *parent)
     : QMainWindow(parent)

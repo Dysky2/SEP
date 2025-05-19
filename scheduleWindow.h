@@ -1,5 +1,5 @@
-#ifndef SCHEDULE_H
-#define SCHEDULE_H
+#ifndef SCHEDULEWINDOW_H
+#define SCHEDULEWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Schedule *ui;
 };
 
-#endif // SCHEDULE_H
+#endif // SCHEDULEWINDOW_H

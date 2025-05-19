@@ -2,12 +2,13 @@
 #define MAINPAGE_H
 
 #include <QMainWindow>
-#include "grades.h"
-#include "attendance.h"
-#include "schedule.h"
-#include "announcements.h"
-#include "homework.h"
-#include "account.h"
+#include "gradesWindow.h"
+#include "attendanceWindow.h"
+#include "scheduleWindow.h"
+#include "announcementsWindow.h"
+#include "homeworkWindow.h"
+#include "accountWindow.h"
+#include <QLineEdit>
 
 namespace Ui {
 class MainPage;

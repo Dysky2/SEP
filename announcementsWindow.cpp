@@ -1,5 +1,5 @@
-#include "announcements.h"
-#include "ui_announcements.h"
+#include "announcementsWindow.h"
+#include "ui_announcementsWindow.h"
 
 Announcements::Announcements(QWidget *parent)
     : QMainWindow(parent)

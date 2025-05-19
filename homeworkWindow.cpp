@@ -1,5 +1,5 @@
-#include "homework.h"
-#include "ui_homework.h"
+#include "homeworkWindow.h"
+#include "ui_homeworkWindow.h"
 
 Homework::Homework(QWidget *parent)
     : QMainWindow(parent)

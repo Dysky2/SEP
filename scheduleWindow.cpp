@@ -1,5 +1,5 @@
-#include "schedule.h"
-#include "ui_schedule.h"
+#include "scheduleWindow.h"
+#include "ui_scheduleWindow.h"
 
 Schedule::Schedule(QWidget *parent)
     : QMainWindow(parent)

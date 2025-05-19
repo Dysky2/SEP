@@ -1,5 +1,5 @@
-#ifndef GRADES_H
-#define GRADES_H
+#ifndef GRADESWINDOW_H
+#define GRADESWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Grades *ui;
 };
 
-#endif // GRADES_H
+#endif // GRADESWINDOW_H

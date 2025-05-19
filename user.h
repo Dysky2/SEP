@@ -5,6 +5,7 @@
 #include <QString>
 
 class User : public QObject {
+    Q_OBJECT
 
 private:
     QString name;
@@ -16,7 +17,7 @@ private:
     QString password;
 
 public:
-
+    User();
     User(const QString &name, const QString &surname, const QString &id,
          const QString &location, const QString &role,
          const QString &email, const QString &password);

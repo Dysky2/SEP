@@ -1,5 +1,5 @@
-#ifndef ATTENDANCE_H
-#define ATTENDANCE_H
+#ifndef ATTENDANCEWINDOW_H
+#define ATTENDANCEWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Attendance *ui;
 };
 
-#endif // ATTENDANCE_H
+#endif // ATTENDANCEWINDOW_H

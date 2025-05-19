@@ -1,5 +1,5 @@
-#ifndef HOMEWORK_H
-#define HOMEWORK_H
+#ifndef HOMEWORKWINDOW_H
+#define HOMEWORKWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Homework *ui;
 };
 
-#endif // HOMEWORK_H
+#endif // HOMEWORKWINDOW_H

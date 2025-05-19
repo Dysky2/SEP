@@ -1,5 +1,5 @@
-#ifndef ACCOUNT_H
-#define ACCOUNT_H
+#ifndef ACCOUNTWINDOW_H
+#define ACCOUNTWINDOW_H
 
 #include <QMainWindow>
 
@@ -19,4 +19,4 @@ private:
     Ui::Account *ui;
 };
 
-#endif // ACCOUNT_H
+#endif // ACCOUNTWINDOW_H

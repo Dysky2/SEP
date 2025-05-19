@@ -1,5 +1,5 @@
-#include "account.h"
-#include "ui_account.h"
+#include "accountWindow.h"
+#include "ui_accountWindow.h"
 
 Account::Account(QWidget *parent)
     : QMainWindow(parent)

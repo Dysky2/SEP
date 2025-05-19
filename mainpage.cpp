@@ -1,5 +1,6 @@
 #include "mainpage.h"
 #include "ui_mainpage.h"
+#include <QTimer>
 
 MainPage::MainPage(QWidget *parent)
     : QMainWindow(parent)
@@ -33,7 +34,15 @@ void MainPage::on_pushButton_schedule_clicked() {
 
 void MainPage::on_pushButton_logOut_clicked()
 {
-    this->hide();
+    this->close();
+
+    parentWidget()->findChild<QLineEdit*>("lineEdit_username")->setText("");
+    parentWidget()->findChild<QLineEdit*>("lineEdit_password")->setText("");
+    QTimer::singleShot(250, [this]() {
+        parentWidget()->show();
+    });
+
+
 }
 
 void MainPage::on_pushButton_announcement_clicked() {

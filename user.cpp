@@ -1,8 +1,12 @@
 #include "User.h"
 
+User::User() : QObject(nullptr) {
+    // Możesz zostawić ciało puste lub ustawić wartości domyślne
+}
+
+
 User::User(const QString &name, const QString &surname, const QString &id, const QString &location,
-           const QString &role, const QString &email, const QString &password) : name(name), surname(surname), id(id), location(location),
-    role(role), email(email), password(password)
+           const QString &role, const QString &email, const QString &password)
 {
     this->name = name;
     this->surname = surname;

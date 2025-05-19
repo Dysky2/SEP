@@ -5,6 +5,11 @@
 #include "mainpage.h"
 #include "app.h"
 #include "user.h"
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QDebug>
+#include <QFile>
+#include "database.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,11 +28,17 @@ public:
 private slots:
     void on_pushButton_Login_clicked();
 
+    void on_commandLinkButton_comeBackToLogIn_clicked();
+
+    void on_commandLinkButton_goToRegisterPage_clicked();
+
+    void on_commandLinkButton_sendApplication_clicked();
+
 private:
     Ui::MainWindow *ui;
     MainPage *mainPage;
     User *user;
 };
-
+\
 
 #endif // MAINWINDOW_H
