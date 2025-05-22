@@ -1,24 +1,27 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
-#include "mark.h"
+#include <QString>
+//#include "mark.h"
 
-class Subject
-{
+class Subject {
 private:
     QString name;
     QString teacher;
-    Mark *mark;
-
+    QString description;
+    //Mark mark;//Jak to zrobic?
 
 public:
-    Subject(const QString& name,const QString& teacher);
+    Subject();
+    Subject(QString name, QString teacher, QString description);
     ~Subject();
-    void setName(const QString& name);
-    void setTeacher(const QString& teacher);
-
-    QString getName() const;
-    QString getTeacher() const;
+    void setName(QString name);
+    void setTeacher(QString teacher);
+    void setDescription(QString description);
+    QString getName();
+    QString getTeacher();
+    QString getDescription();
 };
+
 
 #endif // SUBJECT_H

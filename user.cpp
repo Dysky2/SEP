@@ -1,12 +1,18 @@
 #include "User.h"
 
-User::User() : QObject(nullptr) {
-    // Możesz zostawić ciało puste lub ustawić wartości domyślne
+User::User() {
+    this->name = "";
+    this->surname = "";
+    this->id = "";
+    this->location = "";
+    this->role = "USER";
+    this->email = "";
+    this->password = "";
+    this->isActive = 0;
 }
 
-
-User::User(const QString &name, const QString &surname, const QString &id, const QString &location,
-           const QString &role, const QString &email, const QString &password)
+User::User(const QString& name, const QString& surname, const QString& id, const QString& location,
+           const QString& role, const QString& email, const QString& password,bool isActive)
 {
     this->name = name;
     this->surname = surname;
@@ -15,38 +21,50 @@ User::User(const QString &name, const QString &surname, const QString &id, const
     this->role = role;
     this->email = email;
     this->password = password;
+    this->isActive = 1;
 }
 
-// settery
-void User::setName(const QString &name) {
+User::~User() {
+
+}
+
+void User::setName(const QString& name) {
     this->name = name;
 }
 
-void User::setSurname(const QString &surname) {
+void User::setSurname(const QString& surname) {
     this->surname = surname;
 }
 
-void User::setId(const QString &id) {
+void User::setId(const QString& id) {
     this->id = id;
 }
 
-void User::setlocation(const QString &location) {
+void User::setlocation(const QString& location) {
     this->location = location;
 }
 
-void User::setRole(const QString &role) {
+void User::setRole(const QString& role) {
     this->role = role;
 }
 
-void User::setEmail(const QString &email) {
+void User::setEmail(const QString& email) {
     this->email = email;
 }
 
-void User::setPassword(const QString &password) {
+void User::setPassword(const QString& password) {
     this->password = password;
 }
 
-// Getttery
+void User::Active(bool& isActive) {
+    this->isActive = 1;
+}
+
+void User::Inactive(bool& isActive) {
+    this->isActive = 0;
+}
+
+
 QString User::getName() const {
     return name;
 }
@@ -74,3 +92,8 @@ QString User::getEmail() const {
 QString User::getPassword() const {
     return password;
 }
+
+bool User::getIsActive() const {
+    return isActive;
+}
+

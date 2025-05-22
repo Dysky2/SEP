@@ -1,25 +1,32 @@
 #include "subject.h"
 
-Subject::Subject(const QString& name,const QString& teacher){
-    this->name=name;
-    this->teacher=teacher;
+Subject::Subject() {
+    this->name = "Unknown";
+    this->teacher = "Unknown";
+    this->description = "No description available.";
 }
-
-Subject::~Subject(){
-
+Subject::Subject(QString name, QString teacher, QString description) {
+    this->name = name;
+    this->teacher = teacher;
+    this->description = description;
 }
-
-void Subject::setName(const QString& name){
-    this->name=name;
+Subject::~Subject() {
 }
-
-void Subject::setTeacher(const QString& teacher){
-    this->teacher=teacher;
+void Subject::setName(QString name) {
+    this->name = name;
 }
-
-QString Subject:: getName()const{
+void Subject::setTeacher(QString teacher) {
+    this->teacher = teacher;
+}
+void Subject::setDescription(QString description) {
+    this->description = description;
+}
+QString Subject::getName() {
     return name;
 }
-QString Subject::getTeacher()const{
+QString Subject::getTeacher() {
     return teacher;
+}
+QString Subject::getDescription() {
+    return description;
 }
