@@ -1,25 +1,22 @@
 #include "mod.h"
 
-Mod::Mod() : Teacher()
-{
+Mod::Mod() : Teacher(){
 }
-Mod::Mod(QString& name, QString& surname, QString& id, QString& location, QString& role, QString& email, QString& password, bool isActive)
-    //:Teacher(name, surname, id, location, role, email, password,1)
-{
+Mod::Mod(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password, bool isActive){
 
 }
-void Mod::addRole(User& user, QString& role) {
+void Mod::addRole(User& user, Role& role) {
     user.setRole(role);
 }
 
-void Mod::deleteRole(User& user, QString role = "USER") {
-    user.setRole(role);
+void Mod::deleteRole(User& user) {
+    user.setRole(Role::USER);
 }
 
-void Mod::acceptApplication(User& user, bool& isActive) {
-    user.Active(isActive);
+void Mod::acceptApplication(User& user) {
+    user.setActive();
 }
 
-void Mod::rejectApplication(User& user, bool& isActive) {
-    user.Inactive(isActive);
+void Mod::rejectApplication(User& user) {
+    user.setInactive();
 }

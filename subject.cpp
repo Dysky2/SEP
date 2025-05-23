@@ -1,9 +1,9 @@
 #include "subject.h"
 
 Subject::Subject() {
-    this->name = "Unknown";
-    this->teacher = "Unknown";
-    this->description = "No description available.";
+    this->name = "";
+    this->teacher = "";
+    this->description = "";
 }
 Subject::Subject(QString name, QString teacher, QString description) {
     this->name = name;

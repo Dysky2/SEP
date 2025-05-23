@@ -2,8 +2,7 @@
 #include "subject.h"
 
 Admin::Admin(QString& name, QString& surname, QString& id, QString& location, QString& role,
-             QString& email, QString& password, QString& faculty, bool& isActive)// :Mod(name, surname, id, location, role, email, password, isActive) {
-{
+             QString& email, QString& password, QString& faculty, bool& isActive){
     this->faculty = faculty;
 }
 

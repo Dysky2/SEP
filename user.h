@@ -4,14 +4,22 @@
 #include <QObject>
 #include <QString>
 
+enum class Role{
+    USER,
+    TEACHER,
+    MOD,
+    ADMIN,
+};
+
 class User{
+
 
 private:
     QString name;
     QString surname;
     QString id;
     QString location;
-    QString role;
+    Role role;
     QString email;
     QString password;
     bool isActive;
@@ -20,7 +28,7 @@ private:
 public:
     User();
     User(const QString& name, const QString& surname, const QString& id,
-         const QString& location, const QString& role,
+         const QString& location, const Role& role,
          const QString& email, const QString& password, bool isActive);
     ~User();
 
@@ -28,11 +36,11 @@ public:
     void setSurname(const QString& surname);
     void setId(const QString& id);
     void setlocation(const QString& location);
-    void setRole(const QString& role);
+    void setRole(const Role& role);
     void setEmail(const QString& email);
     void setPassword(const QString& password);
-    void Active(bool& isActive);
-    void Inactive(bool& isActive);
+    void setActive();
+    void setInactive();
 
 
     QString getName() const;

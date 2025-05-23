@@ -5,14 +5,14 @@ User::User() {
     this->surname = "";
     this->id = "";
     this->location = "";
-    this->role = "USER";
+    this->role = Role::USER;
     this->email = "";
     this->password = "";
     this->isActive = 0;
 }
 
 User::User(const QString& name, const QString& surname, const QString& id, const QString& location,
-           const QString& role, const QString& email, const QString& password,bool isActive)
+           const Role& role, const QString& email, const QString& password,bool isActive)
 {
     this->name = name;
     this->surname = surname;
@@ -44,7 +44,7 @@ void User::setlocation(const QString& location) {
     this->location = location;
 }
 
-void User::setRole(const QString& role) {
+void User::setRole(const Role& role) {
     this->role = role;
 }
 
@@ -56,11 +56,11 @@ void User::setPassword(const QString& password) {
     this->password = password;
 }
 
-void User::Active(bool& isActive) {
+void User::setActive() {
     this->isActive = 1;
 }
 
-void User::Inactive(bool& isActive) {
+void User::setInactive() {
     this->isActive = 0;
 }
 
@@ -82,7 +82,13 @@ QString User::getLocation() const {
 }
 
 QString User::getRole() const {
-    return role;
+    switch(role) {
+    case Role::USER:    return "USER";
+    case Role::TEACHER: return "TEACHER";
+    case Role::MOD:     return "MOD";
+    case Role::ADMIN:   return "ADMIN";
+    default:            return "USER";
+    }
 }
 
 QString User::getEmail() const {

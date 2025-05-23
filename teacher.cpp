@@ -3,8 +3,7 @@
 Teacher::Teacher() : User()
 {
 }
-Teacher::Teacher(QString& name, QString& surname, QString& id, QString& location, QString& role, QString& email, QString& password, bool isActive) :User(name, surname, id, location, role, email, password,1)
-{
+Teacher::Teacher(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password, bool isActive) {
 
 }
 Mark Teacher::addMark(QString& description, double grade, int weight) {
