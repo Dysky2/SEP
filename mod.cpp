@@ -2,7 +2,7 @@
 
 Mod::Mod() : Teacher(){
 }
-Mod::Mod(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password, bool isActive){
+Mod::Mod(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password, bool isActive) {
 
 }
 void Mod::addRole(User& user, Role& role) {

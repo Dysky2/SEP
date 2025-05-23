@@ -14,8 +14,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_Login_clicked()
-{
+void MainWindow::on_pushButton_Login_clicked() {
     QSqlDatabase db = Database::getInstance().getConnection();
 
     QString email = ui->lineEdit_username->text();
@@ -34,8 +33,10 @@ void MainWindow::on_pushButton_Login_clicked()
 
         if (query.exec()) {
             if (query.next()) { // Username and password found
+                QString userId = query.value("id").toString();
+                QString userEmail = query.value("email").toString();
                     hide();
-                    mainPage = new MainPage(this);
+                    mainPage = new MainPage(userId, userEmail, this);
                     mainPage->show();
                     ui->lineEdit_username->setText("");
                     ui->lineEdit_password->setText("");
@@ -67,8 +68,7 @@ void MainWindow::on_commandLinkButton_goToRegisterPage_clicked() {
 }
 
 
-void MainWindow::on_commandLinkButton_sendApplication_clicked()
-{
+void MainWindow::on_commandLinkButton_sendApplication_clicked() {
     QString name = ui->lineEdit_name->text();
     QString surname = ui->lineEdit_surname->text();
     QString id = ui->lineEdit_id->text();
@@ -106,7 +106,7 @@ void MainWindow::on_commandLinkButton_sendApplication_clicked()
     }
 
     QSqlQuery insert_query(db);
-    insert_query.prepare("INSERT INTO users (id, name, surname, location, email, password, role) VALUES (:id, :name, :surname, :location, :email, :password, 'USER')");
+    insert_query.prepare("INSERT INTO applications (id, name, surname, location, email, password, role) VALUES (:id, :name, :surname, :location, :email, :password, 'USER')");
     insert_query.bindValue(":id", id);
     insert_query.bindValue(":name", name);
     insert_query.bindValue(":surname", surname);
@@ -116,6 +116,13 @@ void MainWindow::on_commandLinkButton_sendApplication_clicked()
 
     if(insert_query.exec()) {
         QMessageBox::warning(this, "DZIAŁA", "POMYSLNIE DODANO UZYTKOWNIKA");
+        ui->lineEdit_id->setText("");
+        ui->lineEdit_name->setText("");
+        ui->lineEdit_surname->setText("");
+        ui->lineEdit_location->setText("");
+        ui->lineEdit_email->setText("");
+        ui->lineEdit_password_1->setText("");
+        ui->lineEdit_password_2->setText("");
     } else {
         QMessageBox::warning(this, "NIE DZIAŁA", "NIE DODANO UZYTKOWNIKA)" + insert_query.lastError().text());
     }

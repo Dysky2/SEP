@@ -1,4 +1,4 @@
-#include "User.h"
+#include "user.h"
 
 User::User() {
     this->name = "";
@@ -11,12 +11,11 @@ User::User() {
     this->isActive = 0;
 }
 
-User::User(const QString& name, const QString& surname, const QString& id, const QString& location,
-           const Role& role, const QString& email, const QString& password,bool isActive)
-{
+User::User(const QString &id, const QString &name, const QString &surname, const QString &location,
+           const QString &email, const QString &password, const Role& role,  bool isActive) {
+    this->id = id;
     this->name = name;
     this->surname = surname;
-    this->id = id;
     this->location = location;
     this->role = role;
     this->email = email;
@@ -64,6 +63,24 @@ void User::setInactive() {
     this->isActive = 0;
 }
 
+Role User::stringToRole(QString role) {
+    if (role == "USER") {
+        return Role::USER;
+    }
+    else if (role == "TEACHER") {
+        return Role::TEACHER;
+    }
+    else if (role == "MOD") {
+        return Role::MOD;
+    }
+    else if (role == "ADMIN") {
+        return Role::ADMIN;
+    }
+    else {
+        return Role::USER; // wartość domyślna
+    }
+}
+
 
 QString User::getName() const {
     return name;
@@ -103,3 +120,78 @@ bool User::getIsActive() const {
     return isActive;
 }
 
+User getUserById(const QString &userId) {
+    QSqlDatabase db = Database::getInstance().getConnection();
+
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM users WHERE id = :userId");
+    query.bindValue(":userId", userId);
+
+    if(!query.exec()) {
+        return User();
+    }
+
+    if(query.next()) {
+        User tempUser(query.value("id").toString(), query.value("name").toString(), query.value("surname").toString(),
+                    query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
+                    User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
+        return tempUser;
+    } else {
+        db.close();
+        return User();
+    }
+
+    db.close();
+}
+
+
+
+User* getAllUsers(int& userCount) {
+    QSqlDatabase db = Database::getInstance().getConnection();
+
+    userCount = 0;
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM applications");
+
+    if(!query.exec()) {
+        qDebug() << "SQL Error:" << query.lastError().text();
+        return nullptr;
+    }
+
+    User *users = new User[query.record().count()];
+    while(query.next()) {
+        User tempUser(query.value("id").toString(), query.value("name").toString(), query.value("surname").toString(),
+                        query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
+                        User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
+        users[userCount] = tempUser;
+        userCount++;
+    }
+    return users;
+}
+
+Subject* getAllSubjects(QString userId, int &subjectsCount) {
+
+    QSqlDatabase db = Database::getInstance().getConnection();
+    subjectsCount = 0;
+    QSqlQuery query(db);
+
+    // LISTA PRZEDMIOTÓW DLA DANEGO UŻYKOWNIKA
+    query.prepare("SELECT subjects.subject_id, subjects.name, subjects.description, subjects.teacher_id, subjects.mark_list_id FROM users "
+                  " INNER JOIN subject_list ON users.subject_list_id = subject_list.subject_list_id "
+                  " INNER JOIN subjects ON subject_list.subject_id = subjects.subject_id WHERE users.id = :id");
+    query.bindValue(":id", userId);
+
+    if(!query.exec()) {
+        return nullptr;
+    }
+
+    Subject* subjects = new Subject[query.record().count()];
+    while(query.next()) {
+        Subject tempSubject(query.value("subject_id").toString(), query.value("name").toString(), query.value("description").toString(),
+                            query.value("teacher_id").toString(), query.value("mark_list_id").toString());
+        subjects[subjectsCount] = tempSubject;
+        subjectsCount++;
+    }
+
+    return subjects;
+}

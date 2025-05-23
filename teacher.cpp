@@ -6,8 +6,8 @@ Teacher::Teacher() : User()
 Teacher::Teacher(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password, bool isActive) {
 
 }
-Mark Teacher::addMark(QString& description, double grade, int weight) {
-    return Mark(description, grade, weight);
+Mark Teacher::addMark(QString mark_id, QString description, double grade, int weight) {
+    return Mark(mark_id, description, grade, weight);
 }
 
 void Teacher::editMark(Mark& mark, QString& newDescription, double newGrade, int newWeight) {

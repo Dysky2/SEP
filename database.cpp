@@ -10,7 +10,7 @@ QSqlDatabase &Database::getConnection() {
 }
 
 Database::Database(): db(QSqlDatabase::addDatabase("QSQLITE")) {
-    db.setDatabaseName("C:/Users/Dysky/Documents/QtProjects/SEP/login.db");
+    db.setDatabaseName("../../login.db");
     if (!db.open()) {
         qCritical() << "Błąd połączenia z bazą:" << db.lastError().text();
     }

@@ -2,7 +2,7 @@
 #include "subject.h"
 
 Admin::Admin(QString& name, QString& surname, QString& id, QString& location, QString& role,
-             QString& email, QString& password, QString& faculty, bool& isActive){
+             QString& email, QString& password, QString& faculty, bool& isActive) {
     this->faculty = faculty;
 }
 
@@ -10,8 +10,8 @@ void Admin::setFaculty(QString& faculty) {
     this->faculty = faculty;
 }
 
-Subject Admin::createSubject(const QString& subname, const QString& teacher, const QString& description) {
-    return Subject(subname, teacher,description);
+Subject Admin::createSubject(QString id, QString name, QString description, QString teacher, QString mark_list_id) {
+    return Subject(id, name, description, teacher, mark_list_id);
 }
 
 void Admin::editSubject(Subject& subject, const QString& newName, const QString& newTeacher, const QString& newDescription) {
