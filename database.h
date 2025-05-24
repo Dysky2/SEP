@@ -21,7 +21,6 @@ public:
 
     static Database& getInstance();
     QSqlDatabase& getConnection();
-
 };
 
 #endif // DATABASE_H

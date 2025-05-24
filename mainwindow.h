@@ -5,8 +5,6 @@
 #include "mainpage.h"
 #include "app.h"
 #include "user.h"
-#include <QtSql>
-#include <QSqlDatabase>
 #include <QDebug>
 #include <QFile>
 #include "database.h"

@@ -46,6 +46,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         event.h event.cpp
         lesson.h lesson.cpp
         lesson.h lesson.cpp
+        adminpanel.cpp adminpanel.h adminpanel.ui
+        adminpanel.h adminpanel.cpp adminpanel.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SEP APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

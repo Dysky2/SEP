@@ -1,8 +1,11 @@
 #ifndef USER_H
 #define USER_H
 
-#include <QObject>
 #include <QString>
+#include <QSqlError>
+#include <QSqlRecord>
+#include "database.h"
+#include "subject.h"
 
 enum class Role{
     USER,
@@ -27,9 +30,8 @@ private:
 
 public:
     User();
-    User(const QString& name, const QString& surname, const QString& id,
-         const QString& location, const Role& role,
-         const QString& email, const QString& password, bool isActive);
+    User(const QString &id, const QString &name, const QString &surname, const QString &location,
+         const QString &email, const QString &password,const Role& role, bool isActive);
     ~User();
 
     void setName(const QString& name);
@@ -42,6 +44,7 @@ public:
     void setActive();
     void setInactive();
 
+    static Role stringToRole(QString role);
 
     QString getName() const;
     QString getSurname() const;
@@ -51,8 +54,12 @@ public:
     QString getEmail() const;
     QString getPassword() const;
     bool getIsActive() const;
-
-
 };
+
+User getUserById(const QString &userId);
+
+User* getAllUsers(int& userCount);
+
+Subject* getAllSubjects(QString userId, int& subjectsCount);
 
 #endif // USER_H
