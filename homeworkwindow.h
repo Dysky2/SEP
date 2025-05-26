@@ -4,7 +4,21 @@
 #include <QMainWindow>
 #include <QVector>
 #include <QPushButton>
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QToolButton>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QHeaderView>
+#include <QTableWidgetItem>
+#include <QToolBar>
+#include <QTextEdit>
 #include "homework.h"
+#include "teacher.h"
+#include "subject.h"
+#include "database.h"
+#include "addHomeworkDialog.h"
 
 
 namespace Ui {
@@ -35,7 +49,7 @@ private slots:
 private:
     QString userId;
     Ui::HomeworkWindow *ui;
-    QVector<Homework> homeworks; //Baza?
+    QVector<Homework> homeworks;
 
 
 };

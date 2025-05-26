@@ -1,22 +1,6 @@
-// homeworkWindow.cpp
 #include "homeworkWindow.h"
 #include "ui_homeworkWindow.h"
-#include "addHomeworkDialog.h"
-#include <QHBoxLayout>
-#include <QToolButton>
-#include <QPushButton>
-#include <QMessageBox>
-#include <QInputDialog>
-#include <QHeaderView>
-#include <QTableWidgetItem>
-#include <QToolBar>
-#include <QTextEdit>
-#include "homeworkWindow.h"
-#include "homework.h"
-#include "teacher.h"
-#include "subject.h"
-#include <QDebug>
-#include "database.h"
+
 
 HomeworkWindow::HomeworkWindow(QString& userId,QWidget *parent)
     : QMainWindow(parent)

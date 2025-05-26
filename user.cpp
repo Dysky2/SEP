@@ -1,5 +1,5 @@
 #include "user.h"
-#include <QDebug>
+
 
 User::User() {
     this->name = "";

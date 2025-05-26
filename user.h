@@ -4,6 +4,7 @@
 #include <QString>
 #include <QSqlError>
 #include <QSqlRecord>
+#include <QDebug>
 #include "database.h"
 #include "subject.h"
 

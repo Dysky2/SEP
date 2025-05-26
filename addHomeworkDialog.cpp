@@ -1,7 +1,4 @@
 #include "addHomeworkDialog.h"
-#include "ui_addHomeworkDialog.h"
-#include <QDateEdit>
-#include <QMessageBox>
 
 AddHomeworkDialog::AddHomeworkDialog(QWidget *parent) :
     QDialog(parent),
