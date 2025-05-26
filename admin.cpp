@@ -1,8 +1,9 @@
 #include "admin.h"
 #include "subject.h"
 
-Admin::Admin(QString& name, QString& surname, QString& id, QString& location, QString& role,
-             QString& email, QString& password, QString& faculty, bool& isActive) {
+Admin::Admin(QString &id, QString &name,  QString &surname,  QString &location,
+              QString &email, QString &password, Role& role,  bool isActive,QString &faculty)
+             :Mod(id,name,surname,location,email,password,role,isActive) {
     this->faculty = faculty;
 }
 

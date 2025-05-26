@@ -8,7 +8,8 @@ class Mod : public Teacher
 {
 public:
     Mod();
-    Mod(QString& name, QString& surname, QString& id, QString& location, Role& role, QString& email, QString& password,bool isActive);
+    Mod(QString &id, QString &name,  QString &surname,  QString &location,
+        QString &email, QString &password, Role& role,  bool isActive);
     void addRole(User& user, Role& role);
     void deleteRole(User& user);
     void acceptApplication(User& user);

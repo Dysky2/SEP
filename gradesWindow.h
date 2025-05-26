@@ -15,7 +15,7 @@ class Grades : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Grades(QString userId, QString userEmail, QWidget *parent = nullptr);
+    explicit Grades(QString userId, QWidget *parent = nullptr);
     explicit Grades(QWidget *parent = nullptr);
     ~Grades();
 

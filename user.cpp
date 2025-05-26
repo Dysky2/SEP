@@ -1,5 +1,6 @@
 #include "user.h"
 
+
 User::User() {
     this->name = "";
     this->surname = "";
@@ -90,6 +91,11 @@ QString User::getSurname() const {
     return surname;
 }
 
+QString User::getFullName() const
+{
+    return name + " " + surname;
+}
+
 QString User::getId() const {
     return id;
 }
@@ -123,27 +129,30 @@ bool User::getIsActive() const {
 User getUserById(const QString &userId) {
     QSqlDatabase db = Database::getInstance().getConnection();
 
+    if (!db.isOpen()) {
+        qDebug() << "Błąd: Połączenie z bazą danych nie jest aktywne!";
+        return User();
+    }
+
     QSqlQuery query(db);
-    query.prepare("SELECT * FROM users WHERE id = :userId");
+    query.prepare("SELECT * FROM users WHERE id = :userId LIMIT 1");
     query.bindValue(":userId", userId);
 
     if(!query.exec()) {
+        qDebug() << "Błąd wykonania zapytania:" << query.lastError().text();
         return User();
     }
 
     if(query.next()) {
         User tempUser(query.value("id").toString(), query.value("name").toString(), query.value("surname").toString(),
-                    query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
-                    User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
+                      query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
+                      User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
         return tempUser;
     } else {
-        db.close();
+        qDebug() << "Nie znaleziono użytkownika o ID:" << userId;
         return User();
     }
-
-    db.close();
 }
-
 
 
 User* getAllUsers(int& userCount) {

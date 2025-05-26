@@ -4,6 +4,7 @@
 #include <QString>
 #include <QSqlError>
 #include <QSqlRecord>
+#include <QDebug>
 #include "database.h"
 #include "subject.h"
 
@@ -48,6 +49,7 @@ public:
 
     QString getName() const;
     QString getSurname() const;
+    QString getFullName() const;
     QString getId() const;
     QString getLocation() const;
     QString getRole() const;
