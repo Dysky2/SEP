@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlError>
+#include <QFileInfo>
 
 class Database {
 private:
@@ -20,7 +21,7 @@ public:
     bool isOpen() const;
 
     static Database& getInstance();
-    QSqlDatabase& getConnection();
+    QSqlDatabase getConnection();
 };
 
 #endif // DATABASE_H

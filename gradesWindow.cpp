@@ -34,15 +34,6 @@ Grades::Grades(QString userId, QString userEmail, QWidget *parent): QMainWindow(
     hlabels << "Przedmioty" << "Oceny" << "Średnia" << "Ocena końcowa";
     table->setHorizontalHeaderLabels(hlabels);
 
-    // QStringList subjects = {"Matma", "Polski", "Angieslki", "Niemiecki", "Biologia", "ASID", "ASO"};
-    // QStringList marks = {"1","3","5","3","2","1","6","5","6","3","5","3","3.5","2"};
-
-    QVector<QStringList> allMarks = {
-        {"5", "4", "3"},
-        {"4", "5", "2", "3"},
-        {"5", "5"}
-    };
-
     table->setRowCount(subjects.size());
 
     for (int row = 0; row < subjects.size(); ++row) {
@@ -77,44 +68,6 @@ Grades::Grades(QString userId, QString userEmail, QWidget *parent): QMainWindow(
     }
 
     this->setCentralWidget(table);
-
-    // table->setColumnCount(4);
-    // table->setRowCount(subjects.size());
-
-    // for(int i=0; i < table->rowCount(); i++) {
-    //     QTableWidgetItem *item;
-    //     for(int j=0; j < table->columnCount();j++) {
-    //         item = new QTableWidgetItem;
-
-    //         if(j==0) {
-    //             item->setText(subjects[i]);
-    //         }
-    //         if(j==1) {
-    //             QWidget * window = new QWidget;
-
-    //             QPushButton *mark1 = new QPushButton("4");
-    //             QHBoxLayout *layout = new QHBoxLayout(window);
-    //             layout->addWidget(mark1);
-
-    //             item->setText();
-    //             QString marksView;
-    //             for(int k=0; k < marks.size(); k++) {
-    //                 marksView = marksView + QString(marks[k]);
-    //                 marksView = marksView + ' ';
-    //             }
-
-    //             item->setToolTip("Kliknij aby zobaczyć");
-    //             item->setText(marksView);
-    //         }
-    //         if(j==2) {
-    //             item->setText("Test3" + QString::number(i));
-    //         }
-    //         if(j==3) {
-    //             item->setText("Test4" + QString::number(i));
-    //         }
-    //         table->setItem(i,j,item);
-    //     }
-    // }
 }
 
 Grades::Grades(QWidget *parent)

@@ -6,13 +6,17 @@ MainPage::MainPage(QString userId, QString userEmail, QWidget *parent): QMainWin
     ui->setupUi(this);
 
     grade = new Grades(userId, userEmail, this);
+    account = new Account(userId, this);
+    schedule = new ScheduleWindow(userId, this);
     ui->stackedWidget->insertWidget(1, grade);
     ui->stackedWidget->insertWidget(2, &_attendance);
-    ui->stackedWidget->insertWidget(3, &_schedule);
+    ui->stackedWidget->insertWidget(3, schedule);
     ui->stackedWidget->insertWidget(4, &_announcements);
     ui->stackedWidget->insertWidget(5, &_homework);
-    ui->stackedWidget->insertWidget(6, &_account);
+    ui->stackedWidget->insertWidget(6, account);
     ui->stackedWidget->insertWidget(7, &_adminPanel);
+
+    ui->stackedWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     if(getUserById(userId).getRole() == "ADMIN") {
         ui->pushButton_adminPanel->setVisible(true);

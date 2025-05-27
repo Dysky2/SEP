@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include "database.h"
-#include<QMessageBox>
+#include <QMessageBox>
+#include "user.h"
 
 namespace Ui {
 class Account;
@@ -14,6 +15,7 @@ class Account : public QMainWindow
     Q_OBJECT
 
 public:
+    explicit Account(QString userId, QWidget *parent = nullptr);
     explicit Account(QWidget *parent = nullptr);
     ~Account();
 
