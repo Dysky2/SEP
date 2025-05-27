@@ -1,10 +1,11 @@
 #include "announcement.h"
 
 
-Announcement::Announcement(QString title, QString content, QString date) {
+Announcement::Announcement(QString title, QString content, QString date,QString author) {
     this->title = title;
     this->content = content;
     this->date = date;
+    this->author=author;
 }
 
 Announcement::~Announcement() {
@@ -22,15 +23,22 @@ void Announcement::setDate(QString date) {
     this->date = date;
 }
 
-QString Announcement::getTitle() {
+void Announcement::setAuthor(QString author){
+    this->author=author;
+}
+
+QString Announcement::getTitle()const {
     return title;
 }
 
-QString Announcement::getContent() {
+QString Announcement::getContent()const {
     return content;
 }
 
-QString Announcement::getDate() {
+QString Announcement::getDate() const{
     return date;
 }
 
+QString Announcement::getAuthor()const{
+    return author;
+}

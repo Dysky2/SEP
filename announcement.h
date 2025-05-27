@@ -8,15 +8,18 @@ private:
     QString title;
     QString content;
     QString date;
+    QString author;
 public:
-    Announcement(QString title, QString content, QString date);
+    Announcement(QString title, QString content, QString date,QString author);
     ~Announcement();
     void setTitle(QString title);
     void setContent(QString content);
     void setDate(QString date);
-    QString getTitle();
-    QString getContent();
-    QString getDate();
+    void setAuthor(QString author);
+    QString getTitle()const;
+    QString getContent()const;
+    QString getDate()const;
+    QString getAuthor()const;
 };
 
 

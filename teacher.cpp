@@ -60,8 +60,8 @@ void Teacher::editAttendance() {
 
 }
 
-Announcement Teacher::writeAnnouncement(QString& title, QString& content, QString& date) {
-    return Announcement(title, content, date);
+Announcement Teacher::writeAnnouncement(QString& title, QString& content, QString& date,QString& author) {
+    return Announcement(title, content, date,author);
 }
 
 void Teacher::editAnnouncement(Announcement& announcement, QString& title, QString& content, QString& date) {

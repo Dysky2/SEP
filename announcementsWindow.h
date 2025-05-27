@@ -2,21 +2,54 @@
 #define ANNOUNCEMENTSWINDOW_H
 
 #include <QMainWindow>
+#include <QVector>
+#include "announcement.h"
+#include <QTableWidget>
+#include <QToolBar>
+#include <QHeaderView>
+#include <QMessageBox>
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QDialogButtonBox>
+#include <QLabel>
+#include <QDate>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QDateTime>
+#include <QFrame>
+#include "user.h"
 
-namespace Ui {
-class Announcements;
-}
 
-class Announcements : public QMainWindow
+class QTableWidget;
+class QPushButton;
+
+class AnnouncementsWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Announcements(QWidget *parent = nullptr);
-    ~Announcements();
+    explicit AnnouncementsWindow(const QString& userId, QWidget *parent = nullptr);
+    ~AnnouncementsWindow();
+
+    void addAnnouncement(const Announcement &newAnnouncement);
+    void updateTable();
+
+private slots:
+    void onAddAnnouncementClicked();
+    void onEditAnnouncementClicked();
+    void onDeleteAnnouncementClicked();
 
 private:
-    Ui::Announcements *ui;
-};
+    QString userId;
+    QVector<Announcement> announcements;
+    QTableWidget *tableWidget;
+    QPushButton *addButton;
 
+    bool isUserPrivileged() const;
+    void setupToolbar();
+    void setupTable();
+};
 #endif // ANNOUNCEMENTSWINDOW_H

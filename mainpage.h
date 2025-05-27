@@ -47,7 +47,7 @@ private:
     Grades *grade;
     Attendance _attendance;
     Schedule _schedule;
-    Announcements _announcements;
+    AnnouncementsWindow *announcements;
     HomeworkWindow *homework;
     Account _account;
     AdminPanel _adminPanel;

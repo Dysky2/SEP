@@ -7,10 +7,11 @@ MainPage::MainPage(QString& userId, QWidget *parent): QMainWindow(parent), ui(ne
 
     grade = new Grades(userId, this);
     homework = new HomeworkWindow(userId, this);
+    announcements = new AnnouncementsWindow(userId,this);
     ui->stackedWidget->insertWidget(1, grade);
     ui->stackedWidget->insertWidget(2, &_attendance);
     ui->stackedWidget->insertWidget(3, &_schedule);
-    ui->stackedWidget->insertWidget(4, &_announcements);
+    ui->stackedWidget->insertWidget(4, announcements);
     ui->stackedWidget->insertWidget(5, homework);
     ui->stackedWidget->insertWidget(6, &_account);
     ui->stackedWidget->insertWidget(7, &_adminPanel);
