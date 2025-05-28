@@ -26,7 +26,7 @@ Grades::Grades(QString userId, QWidget *parent): QMainWindow(parent), ui(new Ui:
         }
         marksList.append(tempMarkList);
     }
-////////////////////////////////////////
+
     QTableWidget *table = new QTableWidget(this);
     table->setColumnCount(4);
 
@@ -68,7 +68,6 @@ Grades::Grades(QString userId, QWidget *parent): QMainWindow(parent), ui(new Ui:
     }
 
     this->setCentralWidget(table);
-
 }
 
 Grades::Grades(QWidget *parent)

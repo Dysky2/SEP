@@ -82,7 +82,6 @@ Role User::stringToRole(QString role) {
     }
 }
 
-
 QString User::getName() const {
     return name;
 }
@@ -128,7 +127,6 @@ bool User::getIsActive() const {
 
 User getUserById(const QString &userId) {
     QSqlDatabase db = Database::getInstance().getConnection();
-
     if (!db.isOpen()) {
         qDebug() << "Błąd: Połączenie z bazą danych nie jest aktywne!";
         return User();
@@ -153,7 +151,6 @@ User getUserById(const QString &userId) {
         return User();
     }
 }
-
 
 User* getAllUsers(int& userCount) {
     QSqlDatabase db = Database::getInstance().getConnection();

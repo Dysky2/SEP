@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QSqlError>
 #include <QFileInfo>
+
 class Database {
 private:
     QSqlDatabase db;
