@@ -1,5 +1,6 @@
 #include "user.h"
 
+
 User::User() {
     this->name = "";
     this->surname = "";
@@ -89,6 +90,11 @@ QString User::getSurname() const {
     return surname;
 }
 
+QString User::getFullName() const
+{
+    return name + " " + surname;
+}
+
 QString User::getId() const {
     return id;
 }
@@ -132,19 +138,16 @@ User getUserById(const QString &userId) {
 
     if(!query.exec()) {
         qDebug() << "Błąd wykonania zapytania:" << query.lastError().text();
-        db.close();
         return User();
     }
 
     if(query.next()) {
         User tempUser(query.value("id").toString(), query.value("name").toString(), query.value("surname").toString(),
-                    query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
-                    User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
-        db.close();
+                      query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
+                      User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
         return tempUser;
     } else {
         qDebug() << "Nie znaleziono użytkownika o ID:" << userId;
-        db.close();
         return User();
     }
 }

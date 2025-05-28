@@ -22,7 +22,7 @@ class MainPage : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainPage(QString userId, QString userEmail, QWidget *parent = nullptr);
+    explicit MainPage(QString& userId, QWidget *parent = nullptr);
     explicit MainPage(QWidget *parent = nullptr);
     ~MainPage();
 
@@ -49,7 +49,7 @@ private:
     Attendance _attendance;
     ScheduleWindow *schedule;
     Announcements _announcements;
-    Homework _homework;
+    HomeworkWindow *homework;
     Account *account;
     AdminPanel _adminPanel;
 };

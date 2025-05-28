@@ -49,6 +49,7 @@ public:
 
     QString getName() const;
     QString getSurname() const;
+    QString getFullName() const;
     QString getId() const;
     QString getLocation() const;
     QString getRole() const;

@@ -6,7 +6,7 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 
-Grades::Grades(QString userId, QString userEmail, QWidget *parent): QMainWindow(parent), ui(new Ui::Grades)  {
+Grades::Grades(QString userId, QWidget *parent): QMainWindow(parent), ui(new Ui::Grades)  {
     ui->setupUi(this);
 
     int subjectCount;

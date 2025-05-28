@@ -1,4 +1,4 @@
-#ifndef SCHEDULEWINDOW_H
+    #ifndef SCHEDULEWINDOW_H
 #define SCHEDULEWINDOW_H
 
 #include <QMainWindow>

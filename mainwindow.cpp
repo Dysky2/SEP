@@ -36,7 +36,7 @@ void MainWindow::on_pushButton_Login_clicked() {
                 QString userId = query.value("id").toString();
                 QString userEmail = query.value("email").toString();
                     hide();
-                    mainPage = new MainPage(userId, userEmail, this);
+                    mainPage = new MainPage(userId, this);
                     mainPage->show();
                     ui->lineEdit_username->setText("");
                     ui->lineEdit_password->setText("");

@@ -36,7 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         scheduleWindow.cpp scheduleWindow.h scheduleWindow.ui
         gradesWindow.cpp gradesWindow.h gradesWindow.ui
         announcementsWindow.h announcementsWindow.cpp announcementsWindow.ui
-        homeworkWindow.h homeworkWindow.cpp homeworkWindow.ui
+
         accountWindow.h accountWindow.cpp accountWindow.ui
         mark.h mark.cpp
         mark.h mark.cpp
@@ -51,6 +51,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         calendar.h calendar.cpp
         schedulewindow.h schedulewindow.cpp schedulewindow.ui
         schedule.h schedule.cpp
+        homework.h homework.cpp
+        homeworkwindow.h homeworkwindow.cpp homeworkwindow.ui
+        addHomeworkDialog.h addHomeworkDialog.cpp addHomeworkDialog.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SEP APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
