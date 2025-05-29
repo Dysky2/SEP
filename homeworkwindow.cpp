@@ -15,7 +15,11 @@ HomeworkWindow::HomeworkWindow(QString& userId,QWidget *parent)
 
     QPushButton *addButton = new QPushButton(tr("Dodaj zadanie"), this);
     addButton->setVisible(isPrivileged);
-    connect(addButton, &QPushButton::clicked, this, &HomeworkWindow::onAddHomeworkClicked);
+
+    connect(addButton, &QPushButton::clicked, this, [this, userId] {
+        this->onAddHomeworkClicked(userId);
+    });
+
     QToolBar *toolBar = addToolBar(tr("Main Toolbar"));
     toolBar->addWidget(addButton);
 
@@ -47,6 +51,13 @@ HomeworkWindow::HomeworkWindow(QString& userId,QWidget *parent)
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     setCentralWidget(table);
+
+    QList homeworkList = homework->getAllHomework();
+
+    for(int i=0;i < homeworkList.length(); i++) {
+        addHomework(homeworkList[i]);
+    }
+
 }
 
 HomeworkWindow::~HomeworkWindow()
@@ -77,10 +88,10 @@ void HomeworkWindow::updateTable()
          table->setItem(row, 0, new QTableWidgetItem(hw.getSubject().getName()));
          table->setItem(row, 1, new QTableWidgetItem(hw.getTeacher().getFullName()));
          table->setItem(row, 2, new QTableWidgetItem(hw.getOrder()));
-         table->setItem(row, 3, new QTableWidgetItem(hw.getPubDate().toString("dd.MM.yyyy")));
+         table->setItem(row, 3, new QTableWidgetItem(hw.getPubDate()));
          table->setItem(row, 4, new QTableWidgetItem(QString::number(hw.getNumberOfStudents())));
          table->setItem(row, 5, new QTableWidgetItem(QString::number(hw.getNumberOfCompletedTask())));
-         table->setItem(row, 6, new QTableWidgetItem(hw.getEndDate().toString("dd.MM.yyyy")));
+         table->setItem(row, 6, new QTableWidgetItem(hw.getEndDate()));
          QWidget *actionWidget = new QWidget(this);
          auto *layout = new QHBoxLayout(actionWidget);
          layout->setContentsMargins(0,0,0,0);
@@ -124,55 +135,143 @@ void HomeworkWindow::updateTable()
      }
 }
 
-void HomeworkWindow::onAddHomeworkClicked()
-{
-    AddHomeworkDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted) {
-        // Tworzenie obiektów Subject i Teacher
-        Subject subject("TEMP_ID", dialog.getSubject(), "", "TEMP_TEACHER_ID", "TEMP_MARK_LIST");
+void HomeworkWindow::onAddHomeworkClicked(QString userId) {
+    // AddHomeworkDialog dialog(this);
+    // if (dialog.exec() == QDialog::Accepted) {
+    //     // Tworzenie obiektów Subject i Teacher
+    //     Subject subject("TEMP_ID", dialog.getSubject(), "", "TEMP_TEACHER_ID", "TEMP_MARK_LIST");
+
+    //     QString name = dialog.getTeacher().split(" ")[0];
+    //     QString surname = dialog.getTeacher().split(" ").size() > 1? dialog.getTeacher().split(" ")[1] : "";
+    //     QString id = userId;
+    //     QString location = "";
+    //     Role role = Role::TEACHER;
+    //     QString email = "";
+    //     QString password = "";
+
+    //     //tymczasowe - usunac po zrobieniu bazy
+    //     Teacher teacher(
+    //         id,
+    //         name,
+    //         surname,
+    //         location,
+    //         email,
+    //         password,
+    //         role,
+    //         true
+    //     );
 
 
-        QString name = dialog.getTeacher().split(" ")[0];
-        QString surname = dialog.getTeacher().split(" ").size() > 1? dialog.getTeacher().split(" ")[1] : "";
-        QString id = "TEMP_ID";
-        QString location = "";
-        Role role = Role::TEACHER;
-        QString email = "";
-        QString password = "";
+    //     QString orderText = dialog.getOrder();
+    //     QDate pubDate = dialog.getPubDate();
+    //     int studentCount = dialog.getNumberOfStudents();
+    //     int completedCount = 0;
+    //     QDate endDate = dialog.getEndDate();
+    //     QString solution = "";
 
-        //tymczasowe - usunac po zrobieniu bazy
-        Teacher teacher(
-            id,
-            name,
-            surname,
-            location,
-            email,
-            password,
-            role,
-            true
-            );
+    //     Homework newHomework(
+    //         subject,
+    //         teacher,
+    //         orderText,
+    //         pubDate,
+    //         studentCount,
+    //         completedCount,
+    //         endDate,
+    //         solution
+    //         );
 
+    //     homework->addHomework(subject, teacher, orderText, pubDate, studentCount, completedCount, endDate, solution);
+    //     addHomework(newHomework);
+    // }
 
-        QString orderText = dialog.getOrder();
-        QDate pubDate = dialog.getPubDate();
-        int studentCount = dialog.getNumberOfStudents();
-        int completedCount = 0;
-        QDate endDate = dialog.getEndDate();
-        QString solution = "";
+    QDialog *dialog = new QDialog(this);
+    dialog->setWindowTitle("Dodaj zadanie");
 
-        Homework newHomework(
-            subject,
-            teacher,
-            orderText,
-            pubDate,
-            studentCount,
-            completedCount,
-            endDate,
-            solution
-            );
+    QVBoxLayout *layout = new QVBoxLayout(dialog);
 
-        addHomework(newHomework);
+    QLabel *label_day = new QLabel("Przedmiot");
+    QComboBox* dayCombo = new QComboBox(this);
+    QList subjectList = subject->getAllSubjects();
+    for(int i=0; i < subjectList.length(); i++) {
+        dayCombo->addItem(subjectList[i].getName());
     }
+
+    QLabel *label_teacher = new QLabel("Nauczyciel");
+    QLineEdit *lineEdit_teacher = new QLineEdit();
+
+    QLabel *label_order = new QLabel("Polecenie");
+    QLineEdit *lineEdit_order = new QLineEdit();
+
+    QLabel *label_pubDate = new QLabel("Data udostepniona zadania");
+    QDateEdit *dateEdit_pubDate = new QDateEdit(this);
+    dateEdit_pubDate->setDisplayFormat("dd.MM.yyyy");
+    dateEdit_pubDate->setDate(QDate::currentDate());
+    dateEdit_pubDate->setCalendarPopup(true);
+
+    QLabel *label_numberOfS = new QLabel("Liczba uczniów");
+    QLineEdit *lineEdit_numberOfS = new QLineEdit();
+
+
+    QLabel *label_endDate = new QLabel("Data udostepniona zadania");
+    QDateEdit *dateEdit_endDate = new QDateEdit(this);
+    dateEdit_endDate->setDisplayFormat("dd.MM.yyyy");
+    dateEdit_endDate->setDate(QDate::currentDate());
+    dateEdit_endDate->setCalendarPopup(true);
+
+    QHBoxLayout *buttonsLayout = new QHBoxLayout();
+    QPushButton *saveBtn = new QPushButton("Zapisz", dialog);
+    QPushButton *cancelBtn = new QPushButton("Anuluj", dialog);
+
+    buttonsLayout->addWidget(saveBtn);
+    buttonsLayout->addWidget(cancelBtn);
+
+    layout->addWidget(label_day);
+    layout->addWidget(dayCombo);
+    layout->addWidget(label_teacher);
+    layout->addWidget(lineEdit_teacher);
+    layout->addWidget(label_order);
+    layout->addWidget(lineEdit_order);
+    layout->addWidget(label_pubDate);
+    layout->addWidget(dateEdit_pubDate);
+    layout->addWidget(label_numberOfS);
+    layout->addWidget(lineEdit_numberOfS);
+    layout->addWidget(label_endDate);
+    layout->addWidget(dateEdit_endDate);
+    layout->addLayout(buttonsLayout);
+
+    connect(saveBtn, &QPushButton::clicked, [this, dialog, dayCombo, lineEdit_order, dateEdit_pubDate,lineEdit_numberOfS,
+                                            dateEdit_endDate, subjectList, userId] {
+
+        QString orderText = lineEdit_order->text();
+        QString numberOfStudetnsText = lineEdit_numberOfS->text();
+        QDate pubDate = dateEdit_pubDate->date();
+        QDate endDate = dateEdit_endDate->date();
+
+        if(orderText.isEmpty() || numberOfStudetnsText.isEmpty()) {
+            QMessageBox::information(this, "Puste Pole", "Pole nie może być puste");
+        } else {
+            int selectedIndex = dayCombo->currentIndex();
+
+            if(selectedIndex < 0 || selectedIndex >= subjectList.size()) {
+                QMessageBox::critical(this, "Błąd", "Nie wybrano przedmiotu");
+                return;
+            }
+
+            Subject selectedSubject = subjectList.at(selectedIndex);
+            User tempUser = getUserById(userId);
+            Teacher teacher(userId, tempUser.getName(), tempUser.getSurname(),
+                            tempUser.getLocation(), tempUser.getEmail(),
+                            tempUser.getPassword(), Role::TEACHER, 1);
+
+            homework->addHomework(selectedSubject, teacher, orderText,pubDate.toString("dd.MM.yyyy"), numberOfStudetnsText.toInt(),0,endDate.toString("dd.MM.yyyy"), "abc");
+
+            Homework newHomework(selectedSubject, teacher, orderText,pubDate.toString("dd.MM.yyyy"), numberOfStudetnsText.toInt(),0,endDate.toString("dd.MM.yyyy"), "abc");
+
+            addHomework(newHomework);
+            dialog->close();
+        }
+    });
+    dialog->exec();
 }
 
 void HomeworkWindow::onEditHomeworkClicked()
@@ -184,13 +283,16 @@ void HomeworkWindow::onEditHomeworkClicked()
     AddHomeworkDialog dialog(this);
     Homework& hw = homeworks[row];
 
+    QDate pubDate = QDate::fromString(hw.getPubDate(), "dd.MM.yyyy");
+    QDate endDate = QDate::fromString(hw.getEndDate(), "dd.MM.yyyy");
+
     // Wypełniamy dialog bieżącymi danymi
     dialog.setSubject(hw.getSubject().getName());
     dialog.setTeacher(hw.getTeacher().getFullName());
     dialog.setOrder(hw.getOrder());
-    dialog.setPubDate(hw.getPubDate());
+    dialog.setPubDate(pubDate);
     dialog.setNumberOfStudents(hw.getNumberOfStudents());
-    dialog.setEndDate(hw.getEndDate());
+    dialog.setEndDate(endDate);
 
     if (dialog.exec() == QDialog::Accepted) {
 
@@ -224,9 +326,9 @@ void HomeworkWindow::onEditHomeworkClicked()
         hw.setSubject(newSubject);
         hw.setTeacher(teacher);
         hw.setOrder(dialog.getOrder());
-        hw.setPubDate(dialog.getPubDate());
+        hw.setPubDate(dialog.getPubDate().toString("dd.MM.yyyy"));
         hw.setNumberOfStudents(dialog.getNumberOfStudents());
-        hw.setEndDate(dialog.getEndDate());
+        hw.setEndDate(dialog.getEndDate().toString("dd.MM.yyyy"));
 
         updateTable();
     }
@@ -286,7 +388,7 @@ void HomeworkWindow::onPreviewHomeworkClicked(int row)
            "<b>Termin:</b> %3")
             .arg(hw.getSubject().getName())
             .arg(hw.getTeacher().getFullName())
-            .arg(hw.getEndDate().toString("dd.MM.yyyy")));
+            .arg(hw.getEndDate()));
     layout->addWidget(infoLabel);
 
     QTextEdit *solutionEdit = new QTextEdit();

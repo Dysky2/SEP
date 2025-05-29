@@ -9,35 +9,47 @@
 class Homework
 {
 private:
+    QString id;
     Subject subject;
     Teacher teacher;
     QString order;
-    QDate pubDate;
+    QString pubDate;
     int numberOfStudents;
     int numberOfCompletedTask;
-    QDate endDate;
+    QString endDate;
     QString solution;
 
 public:
-    Homework(Subject& subject,Teacher& teacher, QString& order, QDate& pubDate, int& numberOfStudents, int& numberOfCompletedTask, QDate& endDate,QString& solution);
+    // Homework(QString id, Subject subject,Teacher teacher, QString order, QDate pubDate, int numberOfStudents, int numberOfCompletedTask, QDate endDate, QString solution);
+    Homework(QString id, Subject subject, Teacher teacher,
+             QString order, QString pubDate, int numberOfStudents,
+             int numberOfCompletedTask, QString endDate, QString solution);
+
+
+    Homework(Subject& subject,Teacher& teacher, QString& order, QString& pubDate, int& numberOfStudents, int& numberOfCompletedTask, QString& endDate,QString& solution);
+    Homework(Subject subject,Teacher teacher, QString order, QString pubDate, int numberOfStudents, int numberOfCompletedTask, QString endDate,QString solution);
 
     void setSolution(const QString& solution);
     void setSubject(Subject& subject);
     void setTeacher(Teacher& teacher);
     void setOrder(const QString& order);
-    void setPubDate(const QDate& pubDate);
+    void setPubDate(const QString& pubDate);
     void setNumberOfStudents(int numberOfStudents);
     void setNumberOfCompletedTasks(int numberOfCompletedTask);
-    void setEndDate(const QDate& endDate);
+    void setEndDate(const QString& endDate);
 
     QString getSolution() const;
     Subject getSubject() const;
     Teacher getTeacher() const;
     QString getOrder() const;
-    QDate getPubDate() const;
+    QString getPubDate() const;
     int getNumberOfStudents() const;
     int getNumberOfCompletedTask() const;
-    QDate getEndDate() const;
+    QString getEndDate() const;
+
+    QList<Homework> getAllHomework();
+    void addHomework(Subject subject,Teacher teacher, QString order, QString pubDate,
+                         int numberOfStudents, int numberOfCompletedTask, QString endDate,QString solution);
 };
 
 #endif // HOMEWORK_H

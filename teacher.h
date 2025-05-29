@@ -11,7 +11,7 @@ class Teacher : public User
 {
 public:
     Teacher();
-    Teacher(QString &id, QString &name,  QString &surname,  QString &location, QString &email, QString &password, Role& role,  bool isActive);
+    Teacher(QString id, QString name,  QString surname,  QString location, QString email, QString password, Role role,  bool isActive);
     Mark addMark(QString mark_id, QString description, double grade, int weight);
     void editMark(Mark& mark, QString& newDescription, double newGrade, int newWeight);
     void deleteMark(Mark& mark);
@@ -29,6 +29,9 @@ public:
     void editAnnouncement(Announcement& announcement, QString& title, QString& content, QString& date);
     void deleteAnnouncement(Announcement& announcement);
 
+    Teacher getTeacherById(QString teacherId);
 };
+
+
 
 #endif // TEACHER_H

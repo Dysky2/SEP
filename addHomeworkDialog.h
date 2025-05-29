@@ -2,9 +2,6 @@
 #define ADDHOMEWORKDIALOG_H
 
 #include <QDialog>
-#include <QDateEdit>
-#include <QMessageBox>
-#include "ui_addHomeworkDialog.h"
 #include "homework.h"
 
 namespace Ui {

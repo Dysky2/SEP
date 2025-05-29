@@ -3,8 +3,8 @@
 Teacher::Teacher() : User()
 {
 }
-Teacher::Teacher(QString &id, QString &name,  QString &surname,  QString &location,
-                 QString &email, QString &password, Role& role,  bool isActive)
+Teacher::Teacher(QString id, QString name,  QString surname,  QString location,
+                 QString email, QString password, Role role,  bool isActive)
     :User(id,name,surname,location,email,password,role,isActive) {
 }
 Mark Teacher::addMark(QString mark_id, QString description, double grade, int weight) {
@@ -74,3 +74,30 @@ void Teacher::deleteAnnouncement(Announcement& announcement) {
     announcement.~Announcement();
 }
 
+Teacher Teacher::getTeacherById(QString teacherId) {
+    QSqlDatabase db = Database::getInstance().getConnection();
+
+    if (!db.isOpen()) {
+        qDebug() << "Błąd: Połączenie z bazą danych nie jest aktywne!";
+        return Teacher();
+    }
+
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM users WHERE id = :teacherId LIMIT 1");
+    query.bindValue(":teacherId", teacherId);
+
+    if(!query.exec()) {
+        qDebug() << "Błąd wykonania zapytania:" << query.lastError().text();
+        return Teacher();
+    }
+
+    if(query.next()) {
+        Teacher tempTeacher(query.value("id").toString(), query.value("name").toString(), query.value("surname").toString(),
+                      query.value("location").toString(), query.value("email").toString(), query.value("password").toString(),
+                      User::stringToRole(query.value("role").toString()), query.value("isActive").toInt());
+        return tempTeacher;
+    } else {
+        qDebug() << "Nie znaleziono użytkownika o ID:" << teacherId;
+        return Teacher();
+    }
+}

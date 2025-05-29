@@ -21,7 +21,7 @@
 #include <QDateTime>
 #include <QFrame>
 #include "user.h"
-
+#include <QUuid>
 
 class QTableWidget;
 class QPushButton;
@@ -45,6 +45,7 @@ private slots:
 private:
     QString userId;
     QVector<Announcement> announcements;
+    Announcement *announcement;
     QTableWidget *tableWidget;
     QPushButton *addButton;
 
