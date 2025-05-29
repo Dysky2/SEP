@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Attendance</class>
- <widget class="QMainWindow" name="Attendance">
+ <class>TimeTableWindow</class>
+ <widget class="QMainWindow" name="TimeTableWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1258</width>
-    <height>806</height>
+    <width>1221</width>
+    <height>741</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>150</y>
-      <width>521</width>
-      <height>371</height>
+      <x>30</x>
+      <y>60</y>
+      <width>1151</width>
+      <height>631</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>WORK IN PROGRESS</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
+     <string>Dodaj zajęcia do planu</string>
     </property>
    </widget>
   </widget>
@@ -36,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1258</width>
+     <width>1221</width>
      <height>21</height>
     </rect>
    </property>
