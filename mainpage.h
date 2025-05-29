@@ -4,13 +4,14 @@
 #include <QMainWindow>
 #include "gradesWindow.h"
 #include "attendanceWindow.h"
-#include "scheduleWindow.h"
+#include "schedulewindow.h"
 #include "announcementsWindow.h"
 #include "homeworkWindow.h"
 #include "accountWindow.h"
 #include "adminpanel.h"
 #include <QLineEdit>
 #include "database.h"
+#include <QSizePolicy>
 
 namespace Ui {
 class MainPage;
@@ -47,9 +48,9 @@ private:
     Grades *grade;
     Attendance _attendance;
     Schedule _schedule;
-    AnnouncementsWindow *announcements;
+    AnnouncementsWindow *announcements
     HomeworkWindow *homework;
-    Account _account;
+    Account *account;
     AdminPanel _adminPanel;
 };
 
