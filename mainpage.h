@@ -47,8 +47,8 @@ private:
     Ui::MainPage *ui;
     Grades *grade;
     Attendance _attendance;
-    ScheduleWindow *schedule;
-    Announcements _announcements;
+    Schedule _schedule;
+    AnnouncementsWindow *announcements
     HomeworkWindow *homework;
     Account *account;
     AdminPanel _adminPanel;

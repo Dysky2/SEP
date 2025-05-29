@@ -25,7 +25,7 @@ public:
     void deleteLesson(Lesson& lesson);
     void checkAttendance();//tablica obecnosci w lesson
     void editAttendance();
-    Announcement writeAnnouncement(QString& title, QString& content, QString& date);
+    Announcement writeAnnouncement(QString& title, QString& content, QString& date,QString& author);
     void editAnnouncement(Announcement& announcement, QString& title, QString& content, QString& date);
     void deleteAnnouncement(Announcement& announcement);
 
