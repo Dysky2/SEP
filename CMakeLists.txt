@@ -54,6 +54,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         homework.h homework.cpp
         homeworkwindow.h homeworkwindow.cpp homeworkwindow.ui
         addHomeworkDialog.cpp addHomeworkDialog.h addHomeworkDialog.ui
+        weeklycalendar.cpp weeklycalendar.h
+        timetable.cpp timetable.h timetablewindow.cpp timetablewindow.h timetablewindow.ui
 
     )
 # Define target properties for Android with Qt 6 as:

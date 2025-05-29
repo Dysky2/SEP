@@ -25,7 +25,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>531</width>
+      <width>532</width>
       <height>61</height>
      </rect>
     </property>
@@ -41,6 +41,13 @@
       <widget class="QPushButton" name="pushButton_attendance">
        <property name="text">
         <string>Frekwencja</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_timeTable">
+       <property name="text">
+        <string>Plan zajęć</string>
        </property>
       </widget>
      </item>

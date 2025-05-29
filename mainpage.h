@@ -12,6 +12,7 @@
 #include <QLineEdit>
 #include "database.h"
 #include <QSizePolicy>
+#include "timetablewindow.h"
 
 namespace Ui {
 class MainPage;
@@ -43,15 +44,18 @@ private slots:
 
     void on_pushButton_adminPanel_clicked();
 
+    void on_pushButton_timeTable_clicked();
+
 private:
     Ui::MainPage *ui;
     Grades *grade;
     Attendance _attendance;
-    Schedule _schedule;
-    AnnouncementsWindow *announcements
+    ScheduleWindow *schedule;
+    AnnouncementsWindow *announcements;
     HomeworkWindow *homework;
     Account *account;
     AdminPanel _adminPanel;
+    TimeTableWindow *timeTableWindow;
 };
 
 #endif // MAINPAGE_H
