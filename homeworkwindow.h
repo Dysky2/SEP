@@ -18,8 +18,13 @@
 #include "teacher.h"
 #include "subject.h"
 #include "database.h"
+#include <QList>
 #include "addHomeworkDialog.h"
-
+#include <QComboBox>
+#include <QLineEdit>
+#include <QDateEdit>
+#include <QMessageBox>
+#include "user.h"
 
 namespace Ui {
 class HomeworkWindow;
@@ -40,7 +45,7 @@ public:
 
 
 private slots:
-    void onAddHomeworkClicked();
+    void onAddHomeworkClicked(QString userId);
     void onEditHomeworkClicked();
     void onDeleteHomeworkClicked();
     void onAddSolutionClicked();
@@ -49,8 +54,10 @@ private slots:
 private:
     QString userId;
     Ui::HomeworkWindow *ui;
+    Homework *homework;
+    Subject *subject;
     QVector<Homework> homeworks;
-
+    QList<Homework> homeworkList;
 
 };
 

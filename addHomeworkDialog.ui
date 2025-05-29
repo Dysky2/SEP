@@ -29,13 +29,13 @@
     <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>20</y>
      <width>211</width>
-     <height>431</height>
+     <height>422</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -97,11 +97,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_numberOfCompletedTask">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit_numberOfCompletedTask"/>
     </item>
     <item>
      <widget class="QLabel" name="label_endDate">

@@ -42,6 +42,12 @@ void AnnouncementsWindow::setupTable()
     tableWidget->setColumnWidth(2, 100);
     tableWidget->horizontalHeader()->setStretchLastSection(true);
 
+    QList announcmentList = announcement->getAllAnnouncement();
+
+    for(int i=0;i < announcmentList.length(); i++) {
+        addAnnouncement(announcmentList[i]);
+    }
+
     tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -69,7 +75,6 @@ void AnnouncementsWindow::updateTable()
         const Announcement &ann = announcements[i];
         int contentRow = i * 2 + 1;
 
-        // Wiersz z nagłówkiem
         tableWidget->setItem(i * 2, 0, new QTableWidgetItem(ann.getTitle()));
         tableWidget->setItem(i * 2, 1, new QTableWidgetItem(ann.getAuthor()));
         tableWidget->setItem(i * 2, 2, new QTableWidgetItem(ann.getDate()));
@@ -153,6 +158,11 @@ void AnnouncementsWindow::onAddAnnouncementClicked()
             QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm"),
             authorEdit->text()
             );
+
+        QUuid uuid = QUuid::createUuid();
+        QString uuidString = uuid.toString().mid(1, 36);
+
+        announcement->addAnnouncement(uuidString, titleEdit->text(), contentEdit->toPlainText(), QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm"), authorEdit->text());
         addAnnouncement(newAnnouncement);
     }
 }

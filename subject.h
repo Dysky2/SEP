@@ -21,9 +21,13 @@ public:
     void setTeacher(QString teacher);
     void setDescription(QString description);
 
+    QString getId();
     QString getName();
     QString getTeacher();
     QString getDescription();
+
+    QList<Subject> getAllSubjects();
+    Subject getSubjectById(QString subjectId);
 };
 
 
