@@ -84,13 +84,14 @@ void TimeTableWindow::on_pushButton_clicked() {
             if(!exists) {
                 weeklyCalendar.insertIntoWeekCalendar(ui->tableWidget, dayCombo->currentText(), timeCombo->currentText(),
                                                       timeActivitiesCombo->currentText(), textEdit->toPlainText() );
+                timeTable.addTimeTable("", dayCombo->currentText(), timeCombo->currentText(),
+                                       timeActivitiesCombo->currentText(), textEdit->toPlainText());
 
                 QMessageBox::information(this, "Dodanie zajęć", "Pomyślnie dodano zajęcia");
                 dialog->close();
             } else {
                 QMessageBox::information(this, "Dodanie zajęć niemożliwe", "Podana data jest już zajęta");
             }
-
         }
     });
 

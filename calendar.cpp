@@ -83,12 +83,12 @@ void Calendar::createCalendar() {
         QWidget *dayWidget = new QWidget();
         dayWidget->setStyleSheet(
             "QWidget {"
-            "   border: 1px solid #ccc;"     // obramowanie kontenera
+            "   border: 1px solid #ccc;"
             "   background-color: white;"
-            "   margin: 1px;"               // odstęp między komórkami
+            "   margin: 1px;"
             "}"
             "QPushButton:hover {"
-            "   border: 1px solid #999;"    // efekt hover
+            "   border: 1px solid #999;"
             "}"
             );
 

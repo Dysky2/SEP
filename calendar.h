@@ -55,4 +55,4 @@ public:
 
 QString insertSpacesEveryN(const QString& text, int n);
 
-#endif // CALENDAR_H
+#endif

@@ -14,6 +14,7 @@
 #include <QSqlRecord>
 #include <QLatin1Char>
 #include <QHeaderView>
+#include <QUuid>
 
 class WeeklyCalendar : public QObject
 {
@@ -28,8 +29,10 @@ public:
 
     void createWeekCalendar(QTableWidget*& table);
     void insertIntoWeekCalendar(QTableWidget*& table, QString day, QString time, QString duration, QString text);
+
 };
-
 QString insertSpacesEveryN(const QString& text, int n);
+void addTimeTable(QString id, QString day, QString hour, QString duration, QString text);
 
-#endif // WEEKLYCALENDAR_H
+
+#endif

@@ -136,53 +136,6 @@ void HomeworkWindow::updateTable()
 }
 
 void HomeworkWindow::onAddHomeworkClicked(QString userId) {
-    // AddHomeworkDialog dialog(this);
-    // if (dialog.exec() == QDialog::Accepted) {
-    //     // Tworzenie obiektów Subject i Teacher
-    //     Subject subject("TEMP_ID", dialog.getSubject(), "", "TEMP_TEACHER_ID", "TEMP_MARK_LIST");
-
-    //     QString name = dialog.getTeacher().split(" ")[0];
-    //     QString surname = dialog.getTeacher().split(" ").size() > 1? dialog.getTeacher().split(" ")[1] : "";
-    //     QString id = userId;
-    //     QString location = "";
-    //     Role role = Role::TEACHER;
-    //     QString email = "";
-    //     QString password = "";
-
-    //     //tymczasowe - usunac po zrobieniu bazy
-    //     Teacher teacher(
-    //         id,
-    //         name,
-    //         surname,
-    //         location,
-    //         email,
-    //         password,
-    //         role,
-    //         true
-    //     );
-
-
-    //     QString orderText = dialog.getOrder();
-    //     QDate pubDate = dialog.getPubDate();
-    //     int studentCount = dialog.getNumberOfStudents();
-    //     int completedCount = 0;
-    //     QDate endDate = dialog.getEndDate();
-    //     QString solution = "";
-
-    //     Homework newHomework(
-    //         subject,
-    //         teacher,
-    //         orderText,
-    //         pubDate,
-    //         studentCount,
-    //         completedCount,
-    //         endDate,
-    //         solution
-    //         );
-
-    //     homework->addHomework(subject, teacher, orderText, pubDate, studentCount, completedCount, endDate, solution);
-    //     addHomework(newHomework);
-    // }
 
     QDialog *dialog = new QDialog(this);
     dialog->setWindowTitle("Dodaj zadanie");
@@ -210,7 +163,6 @@ void HomeworkWindow::onAddHomeworkClicked(QString userId) {
 
     QLabel *label_numberOfS = new QLabel("Liczba uczniów");
     QLineEdit *lineEdit_numberOfS = new QLineEdit();
-
 
     QLabel *label_endDate = new QLabel("Data udostepniona zadania");
     QDateEdit *dateEdit_endDate = new QDateEdit(this);
@@ -286,7 +238,6 @@ void HomeworkWindow::onEditHomeworkClicked()
     QDate pubDate = QDate::fromString(hw.getPubDate(), "dd.MM.yyyy");
     QDate endDate = QDate::fromString(hw.getEndDate(), "dd.MM.yyyy");
 
-    // Wypełniamy dialog bieżącymi danymi
     dialog.setSubject(hw.getSubject().getName());
     dialog.setTeacher(hw.getTeacher().getFullName());
     dialog.setOrder(hw.getOrder());
@@ -302,7 +253,6 @@ void HomeworkWindow::onEditHomeworkClicked()
                            "TEMP_TEACHER_ID",
                            "TEMP_MARK_LIST");
 
-        // Nowy nauczyciel
         QString name = dialog.getTeacher().split(" ")[0];
         QString surname = dialog.getTeacher().split(" ").size() > 1? dialog.getTeacher().split(" ")[1] : "";
         QString id = "TEMP_ID";
@@ -311,7 +261,6 @@ void HomeworkWindow::onEditHomeworkClicked()
         QString email = "";
         QString password = "";
 
-        //tymczasowe - usunac po zrobieniu bazy
         Teacher teacher(
             id,
             name,

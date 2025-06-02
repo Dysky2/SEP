@@ -24,4 +24,4 @@ public:
     QSqlDatabase getConnection();
 };
 
-#endif // DATABASE_H
+#endif

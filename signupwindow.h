@@ -19,4 +19,4 @@ private:
     Ui::SignUpWindow *ui;
 };
 
-#endif // SIGNUPWINDOW_H
+#endif

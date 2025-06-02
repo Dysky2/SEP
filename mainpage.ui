@@ -25,7 +25,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>532</width>
+      <width>568</width>
       <height>61</height>
      </rect>
     </property>
@@ -39,6 +39,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_attendance">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string>Frekwencja</string>
        </property>
@@ -151,7 +154,7 @@
      <x>0</x>
      <y>0</y>
      <width>1301</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

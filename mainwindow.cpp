@@ -32,7 +32,7 @@ void MainWindow::on_pushButton_Login_clicked() {
         query.bindValue(":password", password);
 
         if (query.exec()) {
-            if (query.next()) { // Username and password found
+            if (query.next()) {
                 QString userId = query.value("id").toString();
                 QString userEmail = query.value("email").toString();
                     hide();

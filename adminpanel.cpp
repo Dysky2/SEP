@@ -7,9 +7,15 @@ AdminPanel::AdminPanel(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->pushButton_2->setVisible(false);
+    ui->pushButton_3->setVisible(false);
+    ui->pushButton_4->setVisible(false);
+    ui->pushButton_5->setVisible(false);
+    ui->pushButton_7->setVisible(false);
+
+
     QSqlDatabase db = Database::getInstance().getConnection();
 
-    // zrzuca bład połaczmia z baza
     int userCount = 0;
     User* users = getAllUsers(userCount);
 

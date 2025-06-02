@@ -53,4 +53,4 @@ private:
     void setupToolbar();
     void setupTable();
 };
-#endif // ANNOUNCEMENTSWINDOW_H
+#endif

@@ -61,4 +61,4 @@ private:
 
 };
 
-#endif // HOMEWORKWINDOW_H
+#endif

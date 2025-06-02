@@ -15,4 +15,4 @@ public:
     void acceptApplication(User& user);
     void rejectApplication(User& user);
 };
-#endif // MOD_H
+#endif

@@ -29,4 +29,4 @@ public:
 
 Mark* getAllMarksByUserIdAndBySubject(QString userId, QString subjectName, int& marksCount);
 
-#endif // MARK_H
+#endif

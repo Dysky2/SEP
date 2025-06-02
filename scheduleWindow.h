@@ -27,4 +27,4 @@ private:
     Calendar* calendar;
 };
 
-#endif // SCHEDULEWINDOW_H
+#endif

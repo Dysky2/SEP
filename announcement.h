@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif // ANNOUNCEMENT_H
+#endif

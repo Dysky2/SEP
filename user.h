@@ -64,4 +64,4 @@ User* getAllUsers(int& userCount);
 
 Subject* getAllSubjects(QString userId, int& subjectsCount);
 
-#endif // USER_H
+#endif
