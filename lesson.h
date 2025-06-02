@@ -7,10 +7,10 @@
 //#include <map>
 
 enum class AttendanceStatus {
-    PRESENT,      // Obecny
-    ABSENT,       // Nieobecny
-    LATE,         // Spóźniony
-    EXCUSED       // Usprawiedliwiony
+    PRESENT,
+    ABSENT,
+    LATE,
+    EXCUSED
 };
 
 class Lesson : public Subject {
@@ -19,8 +19,6 @@ private:
     QString date;
     QString teacher;
     Subject subject;
-    //vector<AttendanceStatus> attendance;
-    //map<int, QString> excuses;
 
 public:
     Lesson(QString name, QString date, QString teacher, Subject subject);
@@ -33,12 +31,6 @@ public:
     QString getDate() const;
     QString getTeacher() const;
     Subject getSubject() const;
-    /*void excuseAbsence(int studentIndex, const QString& reason);
-    void removeExcuse(int studentIndex);
-    void displayAttendance() const;
-    QString getExcuse(int studentIndex) const;
-    bool isExcused(int studentIndex) const;
-    size_t getAttendanceCount() const;*/
 };
 
 #endif // LESSON_H

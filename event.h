@@ -25,4 +25,4 @@ public:
     QString getDescription();
 };
 
-#endif // EVENT_H
+#endif

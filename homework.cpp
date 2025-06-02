@@ -1,18 +1,5 @@
 #include "homework.h"
 
-
-// Homework::Homework(QString id, Subject subject, Teacher teacher, QString order, QDate pubDate, int numberOfStudents, int numberOfCompletedTask, QDate endDate, QString solution) {
-//     this->id = id;
-//     this->subject=subject;
-//     this->teacher=teacher;
-//     this->order=order;
-//     this->pubDate=pubDate;
-//     this->numberOfStudents=numberOfStudents;
-//     this->numberOfCompletedTask=numberOfCompletedTask;
-//     this->endDate=endDate;
-//     this->solution=solution;
-// }
-
 Homework::Homework(QString id, Subject subject, Teacher teacher,
                    QString order, QString pubDate, int numberOfStudents,
                    int numberOfCompletedTask, QString endDate, QString solution) :

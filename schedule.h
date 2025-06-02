@@ -18,4 +18,4 @@ public:
     QDate getDate();
 };
 
-#endif // SCHEDULE_H
+#endif

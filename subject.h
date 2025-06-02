@@ -31,4 +31,4 @@ public:
 };
 
 
-#endif // SUBJECT_H
+#endif

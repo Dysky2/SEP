@@ -36,4 +36,4 @@ private:
     Ui::AddHomeworkDialog *ui;
 };
 
-#endif // ADDHOMEWORKDIALOG_H
+#endif

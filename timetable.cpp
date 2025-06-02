@@ -56,13 +56,56 @@ bool TimeTable::existActivitiesOnThisDate(QString day, QString hour, QString dur
     return false;
 }
 
-QList<TimeTable> TimeTable::getActivities() {
+void TimeTable::addTimeTable(QString id, QString day, QString hour, QString duration, QString text) {
+    QSqlDatabase db = Database::getInstance().getConnection();
+    if (!db.isOpen()) {
+        qDebug() << "Błąd połączenia z bazą danych";
+        return;
+    }
+
+    QUuid uuid = QUuid::createUuid();
+    QString uuidString = uuid.toString().mid(1, 36);
+
+    QSqlQuery query(db);
+    query.prepare("INSERT INTO timeTable (id,day,hour,duration,text) VALUES (:id,:day, :hour, :duration, :text)");
+    query.bindValue(":id", uuidString);
+    query.bindValue(":day", day);
+    query.bindValue(":hour", hour);
+    query.bindValue(":duration", duration);
+    query.bindValue(":text", text);
+
+    if(!query.exec()) {
+        qDebug() << "Blad: " << query.lastError().text();
+    } else {
+        qDebug() << "Pomyslnie dodano wydarzenie w terminarzu";
+    }
+}
+
+QString TimeTable::getDay() {
+    return this->day;
+}
+
+QString TimeTable::getHour() {
+    return this->hour;
+
+}
+
+QString TimeTable::getDuration() {
+    return this->duration;
+}
+
+QString TimeTable::getText() {
+    return this->text;
+}
+
+QList<TimeTable> getActivities() {
     QSqlDatabase db = Database::getInstance().getConnection();
     QList<TimeTable> allActivities;
 
     if (!db.isOpen()) {
         qDebug() << "Błąd połączenia z bazą danych";
         return allActivities;
+
     }
 
     QSqlQuery query(db);
@@ -81,8 +124,4 @@ QList<TimeTable> TimeTable::getActivities() {
     }
 
     return allActivities;
-}
-
-QString TimeTable::getDay() {
-    return this->day;
 }

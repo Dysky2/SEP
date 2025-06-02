@@ -32,4 +32,4 @@ private:
     TimeTable timeTable;
 };
 
-#endif // TIMETABLEWINDOW_H
+#endif

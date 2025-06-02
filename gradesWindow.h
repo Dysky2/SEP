@@ -23,4 +23,4 @@ private:
     Ui::Grades *ui;
 };
 
-#endif // GRADESWINDOW_H
+#endif

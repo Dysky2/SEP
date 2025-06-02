@@ -5,6 +5,7 @@
 MainPage::MainPage(QString& userId, QWidget *parent): QMainWindow(parent), ui(new Ui::MainPage) {
     ui->setupUi(this);
 
+    ui->pushButton_attendance->setVisible(false);
     grade = new Grades(userId, this);
     homework = new HomeworkWindow(userId, this);
     account = new Account(userId, this);

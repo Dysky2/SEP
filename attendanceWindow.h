@@ -19,4 +19,4 @@ private:
     Ui::Attendance *ui;
 };
 
-#endif // ATTENDANCEWINDOW_H
+#endif

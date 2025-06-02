@@ -58,4 +58,4 @@ private:
     TimeTableWindow *timeTableWindow;
 };
 
-#endif // MAINPAGE_H
+#endif

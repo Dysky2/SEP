@@ -20,7 +20,6 @@ private:
     QString solution;
 
 public:
-    // Homework(QString id, Subject subject,Teacher teacher, QString order, QDate pubDate, int numberOfStudents, int numberOfCompletedTask, QDate endDate, QString solution);
     Homework(QString id, Subject subject, Teacher teacher,
              QString order, QString pubDate, int numberOfStudents,
              int numberOfCompletedTask, QString endDate, QString solution);
@@ -52,4 +51,4 @@ public:
                          int numberOfStudents, int numberOfCompletedTask, QString endDate,QString solution);
 };
 
-#endif // HOMEWORK_H
+#endif

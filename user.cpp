@@ -78,7 +78,7 @@ Role User::stringToRole(QString role) {
         return Role::ADMIN;
     }
     else {
-        return Role::USER; // wartość domyślna
+        return Role::USER;
     }
 }
 
